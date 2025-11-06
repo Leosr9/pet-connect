@@ -1,0 +1,121 @@
+:root{
+  --bg-grad: linear-gradient(180deg,#0f1420 0%, #111827 45%, #1b1534 100%);
+  --card: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.04);
+  --accent: #5eead4;       /* mint/cyan accent */
+  --accent-2: #7c3aed;     /* purple secondary */
+  --muted: #9aa5a7;
+  --white-10: rgba(255,255,255,0.09);
+  --nav-height: 78px;
+  --radius: 14px;
+  --shadow-1: 0 10px 30px rgba(2,6,23,0.6);
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,'Poppins',sans-serif;background:var(--bg-grad);color:var(--muted);-webkit-font-smoothing:antialiased}
+#app{max-width:420px;margin:0 auto;padding-bottom:var(--nav-height);min-height:100vh;}
+
+/* Screens */
+.screen{display:none;padding:20px 16px 120px;min-height:calc(100vh - var(--nav-height));transition:opacity .25s ease}
+.screen.active{display:block;opacity:1}
+.hidden{display:none}
+
+/* Card style — modern glass */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius:var(--radius);
+  padding:14px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow-1);
+  border: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+  color: #dfeef0;
+}
+
+/* Auth card (centered) */
+.auth-card{
+  max-width:360px;margin:56px auto;padding:22px 18px 26px;text-align:center;
+  box-shadow: 0 12px 40px rgba(7,10,16,0.6);
+}
+.auth-card h1{color:var(--accent-2);margin-bottom:6px}
+.auth-card .muted{color:rgba(255,255,255,0.7)}
+
+/* Inputs & buttons — dark style */
+input[type="text"],input[type="email"],input[type="password"],input[type="tel"],.file-label{
+  width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);margin-top:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);color:#e9fbf3;
+}
+input::placeholder{color:rgba(255,255,255,0.45)}
+.file-label{display:block;text-align:center;padding:10px;border-radius:10px;border:1px dashed rgba(255,255,255,0.03);cursor:pointer;margin-top:12px;color:var(--muted)}
+.btn{
+  display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#061017;border:none;padding:10px 14px;border-radius:12px;margin-top:12px;cursor:pointer;font-weight:700;box-shadow:0 8px 22px rgba(124,58,237,0.15)
+}
+.btn.small{padding:8px 10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--accent-2)}
+
+/* Pet list */
+.list{display:flex;flex-direction:column;gap:14px}
+.pet-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;padding:8px;box-shadow: 0 8px 28px rgba(2,6,23,0.55);text-align:center;border:1px solid rgba(255,255,255,0.03)
+}
+.pet-card img{width:100%;height:178px;object-fit:cover;border-radius:10px;border:1px solid var(--white-10)}
+.pet-meta{margin-top:8px;color:#cfeee2;font-weight:700}
+
+/* profile */
+.profile-card{display:flex;flex-direction:column;align-items:center;gap:8px}
+.profile-card img{width:86px;height:86px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.06)}
+
+/* modal */
+.modal{position:fixed;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.7));display:flex;align-items:center;justify-content:center;z-index:999}
+.modal.hidden{display:none}
+.modal-card{width:92%;max-width:400px;padding:16px;border-radius:14px;position:relative;text-align:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);box-shadow:0 20px 60px rgba(3,6,20,0.7)}
+.close-btn{position:absolute;right:14px;top:14px;border:none;background:rgba(255,255,255,0.03);color:#fff;padding:6px;border-radius:8px;cursor:pointer}
+.modal-img{width:100%;height:170px;object-fit:cover;border-radius:10px;margin-bottom:8px}
+
+/* chat */
+.chat-card{display:flex;flex-direction:column;gap:10px;height:70vh}
+.chat-messages{flex:1;overflow:auto;padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:10px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px}
+.chat-msg{max-width:78%;padding:10px 12px;border-radius:14px;font-size:15px;line-height:1.2;word-wrap:break-word}
+.chat-msg.other{align-self:flex-start;background:rgba(255,255,255,0.03);color:#d6efe9;border:1px solid rgba(255,255,255,0.02)}
+.chat-msg.you{align-self:flex-end;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#081018;border:1px solid rgba(0,0,0,0.08);box-shadow:0 10px 30px rgba(124,58,237,0.12)}
+.chat-controls{display:flex;gap:8px;align-items:center;margin-top:8px;position:relative}
+.chat-controls input{flex:1;padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.02);color:#e9fbf3}
+.emoji-btn{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:10px;cursor:pointer;color:#fff}
+
+/* emoji picker */
+.emoji-picker{position:absolute;bottom:calc(100% + 12px);left:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);border-radius:10px;padding:8px;display:none;flex-wrap:wrap;gap:8px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+.emoji-picker.show{display:flex}
+.emoji-picker .emoji{background:none;border:none;font-size:20px;cursor:pointer;padding:6px;border-radius:8px}
+
+/* bottom nav */
+.bottom-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:50;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px;border-radius:999px;box-shadow:0 18px 46px rgba(2,6,23,0.6);display:flex;gap:10px;width:94%;max-width:420px;justify-content:space-around;height:var(--nav-height);align-items:center}
+.bottom-nav .nav-btn{background:transparent;border:none;color:var(--muted);font-weight:700;cursor:pointer;padding:8px 12px;border-radius:12px}
+
+/* splash overlay styles (the JS will inject an element using this) */
+.splash-overlay{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:9999;
+  background: radial-gradient(circle at 30% 20%, rgba(124,58,237,0.22), transparent 20%),
+              radial-gradient(circle at 80% 80%, rgba(94,234,212,0.12), transparent 20%),
+              linear-gradient(180deg,#070811,#0b0f18);
+  color:#fff;
+}
+.splash-card{
+  width:84%;max-width:420px;border-radius:18px;padding:22px 18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 40px 110px rgba(2,6,23,0.7);text-align:center;border:1px solid rgba(255,255,255,0.03)
+}
+.paw-svg{width:130px;height:130px;margin:0 auto;display:block}
+.splash-title{font-size:22px;margin-top:12px;color:#dffbf4;font-weight:700}
+.splash-sub{color:rgba(255,255,255,0.6);margin-top:8px}
+
+/* small animation helpers */
+.paw-wag { animation: pawWag 1s ease-in-out infinite; transform-origin:50% 75% }
+@keyframes pawWag { 0%{ transform: translateY(0) rotate(0deg) } 25%{ transform: translateY(-6px) rotate(-3deg) } 50%{ transform: translateY(0) rotate(0deg) } 75%{ transform: translateY(-6px) rotate(3deg) } 100%{ transform: translateY(0) rotate(0deg) } }
+
+/* fade animations */
+.fade-out { animation: fadeOut 0.45s ease forwards }
+@keyframes fadeOut { from { opacity:1; transform:scale(1) } to { opacity:0; transform:scale(0.98) } }
+
+/* responsiveness */
+@media (max-width:420px){
+  .auth-card{margin:42px 14px}
+  .splash-card{width:92%}
+}

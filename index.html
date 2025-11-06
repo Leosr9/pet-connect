@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetConnect Mobile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- LOGIN SCREEN -->
+    <div id="loginScreen" class="screen active">
+      <div class="auth-card">
+        <h2>Welcome to <span style="color:var(--accent)">PetConnect</span></h2>
+        <p class="muted">Login to continue</p>
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <input type="password" id="loginPass" placeholder="Password" />
+        <button id="loginBtn" class="btn">Login</button>
+        <p class="muted">Don’t have an account? <span id="gotoSignup" class="link">Sign up</span></p>
+      </div>
+    </div>
+
+    <!-- SIGNUP SCREEN -->
+    <div id="signupScreen" class="screen hidden">
+      <div class="auth-card">
+        <h2>Create Account</h2>
+        <input type="text" id="signupName" placeholder="Full Name" />
+        <input type="email" id="signupEmail" placeholder="Email" />
+        <input type="tel" id="signupPhone" placeholder="Phone Number" />
+        <input type="password" id="signupPass" placeholder="Password" />
+        <button id="signupBtn" class="btn">Sign Up</button>
+        <p class="muted">Already have an account? <span id="gotoLogin" class="link">Login</span></p>
+      </div>
+    </div>
+
+    <!-- HOME SCREEN -->
+    <div id="homeScreen" class="screen hidden">
+      <h2>Available Pets</h2>
+      <div id="petList" class="list"></div>
+    </div>
+
+    <!-- PROFILE SCREEN -->
+    <div id="profileScreen" class="screen hidden">
+      <h2>Your Profile</h2>
+      <div class="card profile-card">
+        <img src="https://i.ibb.co/Zz1KhMt/profile.png" alt="Profile" />
+        <div><b>Name:</b> <span id="profileName"></span></div>
+        <div><b>Email:</b> <span id="profileEmail"></span></div>
+        <div><b>Phone:</b> <span id="profilePhone"></span></div>
+        <button id="logoutBtn" class="btn logout">Logout</button>
+      </div>
+
+      <h3 style="margin-top:20px;">Upload Pet for Adoption</h3>
+      <div class="card">
+        <input type="text" id="dogName" placeholder="Pet Name" />
+        <input type="text" id="dogCenter" placeholder="Center/Location" />
+        <input type="text" id="dogContact" placeholder="Contact Number" />
+        <input type="text" id="dogPrice" placeholder="Price or Free" />
+        <label class="file-label" for="dogImage">Upload Pet Image</label>
+        <input type="file" id="dogImage" accept="image/*" hidden />
+        <img id="imgPreview" class="img-preview hidden" />
+        <button id="postDogBtn" class="btn">Post Pet</button>
+      </div>
+    </div>
+
+    <!-- CHAT SCREEN -->
+    <div id="chatScreen" class="screen hidden">
+      <h2>World Chat 🐾</h2>
+      <div class="chat-card">
+        <div id="chatMessages" class="chat-messages"></div>
+        <div class="chat-controls">
+          <input type="text" id="chatInput" placeholder="Type a message..." />
+          <button id="emojiToggle" class="emoji-btn">😊</button>
+          <div id="emojiPicker" class="emoji-picker"></div>
+          <button id="sendMsg" class="btn small">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HELP SCREEN -->
+    <div id="helpScreen" class="screen hidden">
+      <h2>Nearby Help Centers</h2>
+      <div class="card">
+        <p><b>Paw Rescue Center</b><br>Pune<br>📞 +91 98765 11122</p>
+      </div>
+      <div class="card">
+        <p><b>Happy Paws Foundation</b><br>Mumbai<br>📞 +91 91234 56789</p>
+      </div>
+      <div class="card">
+        <p><b>Animal Aid Helpline</b><br>Delhi<br>📞 +91 90909 09090</p>
+      </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="adoptModal" class="modal hidden">
+      <button class="btn small delete-btn">Delete Post</button>
+      <div class="modal-card card">
+        <button id="closeModal" class="close-btn">✖</button>
+        <img id="modalImg" class="modal-img" />
+        <h3 id="modalName"></h3>
+        <p id="modalDesc"></p>
+        <p><b>Center:</b> <span id="modalCenter"></span></p>
+        <p><b>Price:</b> <span id="modalPrice"></span></p>
+        <p><b>Contact:</b> <span id="modalContact"></span></p>
+        <div class="modal-actions">
+          <button id="cancelRequest" class="btn small">Cancel</button>
+          <button id="confirmRequest" class="btn">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <div class="bottom-nav">
+      <button class="nav-btn" data-target="homeScreen">🏠</button>
+      <button class="nav-btn" data-target="chatScreen">💬</button>
+      <button class="nav-btn" data-target="profileScreen">👤</button>
+      <button class="nav-btn" data-target="helpScreen">🆘</button>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
